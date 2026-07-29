@@ -1,12 +1,12 @@
 <template>
   <v-sheet class="mx-auto pa-8" max-width="400" rounded="lg" elevation="4">
-    <h2 class="text-h5 text-center mb-6 font-weight-bold">Login</h2>
+    <h2 class="text-h5 text-center mb-6 font-weight-bold">Registro</h2>
     
     <v-alert v-if="error" type="error" class="mb-4" closable>
       {{ error }}
     </v-alert>
 
-    <v-form validate-on="submit lazy" @submit.prevent="handleLogin">
+    <v-form validate-on="submit lazy" @submit.prevent="handleRegister">
       <v-text-field
         v-model="email"
         :rules="emailRules"
@@ -26,13 +26,23 @@
         color="primary"
         prepend-inner-icon="mdi-lock"
         class="mt-4"
-        placeholder="Ingresa tu contraseña"
+      ></v-text-field>
+
+      <v-text-field
+        v-model="confirmPassword"
+        :rules="confirmPasswordRules"
+        label="Confirmar contraseña"
+        type="password"
+        variant="outlined"
+        color="primary"
+        prepend-inner-icon="mdi-lock-check"
+        class="mt-4"
       ></v-text-field>
 
       <v-btn
         :loading="loading"
         class="mt-6"
-        text="Iniciar Sesión"
+        text="Registrarse"
         type="submit"
         block
         color="primary"
@@ -42,23 +52,19 @@
     </v-form>
 
     <div class="text-center mt-4">
-      <span class="text-body2">¿No tienes cuenta? </span>
-      <router-link to="/register" class="text-primary text-decoration-none font-weight-bold">
-        Regístrate aquí
+      <span class="text-body2">¿Ya tienes cuenta? </span>
+      <router-link to="/" class="text-primary text-decoration-none font-weight-bold">
+        Inicia sesión aquí
       </router-link>
     </div>
   </v-sheet>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import { useAuth } from '@/composables/useAuth'
 
-const { login, loading, error, getLastEmail, getLastEmailPlain } = useAuth()
-
-const lastEmailInfo = ref(false)
-const lastEmailPlain = ref('')
-const lastEmailEncrypted = ref('')
+const { register, loading, error } = useAuth()
 
 const emailRules = [
   (value: string) => !!value || 'El correo es requerido.',
@@ -72,23 +78,16 @@ const passwordRules = [
   (value: string) => /[0-9]/.test(value) || 'La contraseña debe contener al menos un número.',
 ]
 
+const confirmPasswordRules = computed(() => [
+  (value: string) => !!value || 'Confirmar contraseña es requerido.',
+  (value: string) => value === password.value || 'Las contraseñas no coinciden.',
+])
+
 const email = ref('')
 const password = ref('')
+const confirmPassword = ref('')
 
-onMounted(() => {
-  const lastEmail = getLastEmail()
-  const lastEmailPlainValue = getLastEmailPlain()
-  
-  if (lastEmail) {
-    email.value = lastEmailPlainValue
-    lastEmailInfo.value = true
-    lastEmailEncrypted.value = lastEmail
-    lastEmailPlain.value = lastEmailPlainValue
-  }
-})
-
-const handleLogin = async () => {
-  await login(email.value, password.value)
+const handleRegister = async () => {
+  await register(email.value, password.value)
 }
-
 </script>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#ffffff"/>
+  <rect width="1280" height="80" fill="#1976d2"/>
+  <text x="640" y="50" font-size="40" fill="white" text-anchor="middle" font-weight="bold">Dashboard - Login App</text>
+  <rect x="50" y="120" width="350" height="150" fill="#f5f5f5" stroke="#ddd" stroke-width="2" rx="5"/>
+  <text x="225" y="160" font-size="18" fill="#333" text-anchor="middle" font-weight="bold">Usuarios</text>
+  <text x="225" y="220" font-size="24" fill="#1976d2" text-anchor="middle" font-weight="bold">1,234</text>
+  <rect x="450" y="120" width="350" height="150" fill="#f5f5f5" stroke="#ddd" stroke-width="2" rx="5"/>
+  <text x="625" y="160" font-size="18" fill="#333" text-anchor="middle" font-weight="bold">Sesiones Activas</text>
+  <text x="625" y="220" font-size="24" fill="#1976d2" text-anchor="middle" font-weight="bold">89</text>
+  <rect x="850" y="120" width="350" height="150" fill="#f5f5f5" stroke="#ddd" stroke-width="2" rx="5"/>
+  <text x="1025" y="160" font-size="18" fill="#333" text-anchor="middle" font-weight="bold">Últimas 24h</text>
+  <text x="1025" y="220" font-size="24" fill="#1976d2" text-anchor="middle" font-weight="bold">456</text>
+</svg>

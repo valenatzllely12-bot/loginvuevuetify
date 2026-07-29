@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 720" width="540" height="720">
+  <rect width="540" height="720" fill="#ffffff"/>
+  <rect width="540" height="100" fill="#1976d2"/>
+  <text x="270" y="60" font-size="40" fill="white" text-anchor="middle" font-weight="bold">Login App</text>
+  <rect x="30" y="150" width="480" height="60" fill="#e0e0e0" rx="5"/>
+  <text x="40" y="190" font-size="20" fill="#666">Usuario</text>
+  <rect x="30" y="240" width="480" height="60" fill="#e0e0e0" rx="5"/>
+  <text x="40" y="280" font-size="20" fill="#666">Contraseña</text>
+  <rect x="30" y="340" width="480" height="60" fill="#1976d2" rx="5"/>
+  <text x="270" y="380" font-size="20" fill="white" text-anchor="middle" font-weight="bold">Iniciar Sesión</text>
+</svg>

@@ -13,6 +13,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./components/AppFooter.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    NotificationCenter: typeof import('./components/NotificationCenter.vue')['default']
+    OfflineIndicator: typeof import('./components/OfflineIndicator.vue')['default']
+    Register: typeof import('./components/Register.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
